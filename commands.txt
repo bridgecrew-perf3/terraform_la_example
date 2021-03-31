@@ -1,0 +1,19 @@
+
+  sudo apt install python3-pip
+  pip3 install awscli --user
+  pip3 install ansible --user
+  $AWS_ACCESS_KEY_ID
+  $AWS_SECRET_ACCESS_KEY
+  aws configure
+  aws ec2 describe-instances
+  aws s3api create-bucket --bucket <uniq_name_of_a_bucket>
+  aws s3api create-bucket --bucket <uniq_name_of_a_bucket> --region eu-central-1
+  terraform init
+  terraform fmt
+  terraform plan
+  terraform apply
+  terraform validate
+  terraform destroy
+  aws s3 cp s3://<uniq_name_of_a_bucket>/terraformstatefile .
+  ssh-keygen -t rsa
+  
