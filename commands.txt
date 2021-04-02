@@ -16,4 +16,35 @@
   terraform destroy
   aws s3 cp s3://<uniq_name_of_a_bucket>/terraformstatefile .
   ssh-keygen -t rsa
-  
+  aws route53 list-hosted-zones
+  terraform output                                          #to get info about our Outputs
+  terraform output <label_of_our_output_in_outputs.tf>      # give us info about this variable
+  terraform state list                                      # give us info about our resources
+
+
+  terraform console
+  > aws_vpc.vpc_useast                                      # we put a name of our resource from previous command
+  > aws_vpc.vpc_useast.owner_id                             # return to us a specific param about resource
+  > join(".", ["terraform", "acg"])                         # this will return terraform.acg
+  > exit
+
+
+  terraform graph > tf.dot                           # this command return a structure of our infrastructure in .dot format file
+  sudo yum install -y graphviz                       # here we install an application which create from our tf.dot file png file
+  cat tf.dot | dot -Tpng -otf.png                    # here we piped our file into dot command and describe -T(type) and -o(outputfile)
+
+
+  ansible-playbook --syntax-check <file>.yml         # to check syntax of ansible-playbook files
+  echo $?                                            # return code of the last execute command
+
+  TF_LOG=TRACE terraform plan   # command for debugging terraform
+  export TF_LOG_PATH=debug.log      # command to save log of terraform plan command into debug.log file when it runs
+
+
+  export ANSIBLE_DEBUG=1
+  ansible localhost -m ping               # after run this couple of command we will see a bunch of info in our console output
+  export ANSIBLE_DEBUG=0                  # to disable it
+  ansible localhost -v -m ping
+  ansible localhost -vvv -m ping           # to increase verbosity
+  ANSIBLE_VERBOSITY=1 ansible localhost -m ping
+  ANSIBLE_VERBOSITY=3 ansible localhost -m ping

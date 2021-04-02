@@ -10,7 +10,7 @@ variable "region-master" {
 
 variable "region-worker" {
   type    = string
-  default = "us-west-2"
+  default = "us-west-1"
 }
 
 variable "external_ip" {
@@ -33,4 +33,5 @@ variable "instance-type" {
 variable "webserver-port" {
   type    = number
   default = 80
+  # default = 8080 #for jenkins instalation
 }
